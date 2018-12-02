@@ -3,6 +3,7 @@ package com.wrongwrong.modeltest.controller
 import com.wrongwrong.modeltest.model.MyModel
 import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -15,9 +16,13 @@ class MyController{
 
     @PostMapping
     fun myPostTest(
-            @RequestBody myModel: MyModel,
+            @RequestBody @Validated myModel: MyModel,
             bindingResult: BindingResult
     ): String {
+        if(bindingResult.hasErrors()){
+            return bindingResult.allErrors.toString()
+        }
+
         return "post:" + myModel.toString()
     }
 }
