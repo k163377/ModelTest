@@ -20,9 +20,9 @@ class MyController{
             bindingResult: BindingResult
     ): String {
         if(bindingResult.hasErrors()){
-            return bindingResult.allErrors.toString()
+            return bindingResult.allErrors.toString() + "\n"
         }
 
-        return "post:" + myModel.toString()
+        return "post:" + myModel.toString() + "\n"
     }
 }
