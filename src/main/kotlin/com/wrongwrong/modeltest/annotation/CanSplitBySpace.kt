@@ -1,9 +1,6 @@
 package com.wrongwrong.modeltest.annotation
 
-import javax.validation.Constraint
-import javax.validation.ConstraintValidator
-import javax.validation.ConstraintValidatorContext
-import javax.validation.ReportAsSingleViolation
+import javax.validation.*
 import kotlin.reflect.KClass
 
 //アノテーション
@@ -15,7 +12,7 @@ import kotlin.reflect.KClass
 annotation class CanSplitBySpace(
         val message: String = "message",
         val groups: Array<KClass<out Any>> = [],
-        val payload: Array<KClass<out Any>> = []
+        val payload: Array<KClass<out Payload>> = []
 )
 
 //バリデーター本体
