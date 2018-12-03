@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull
 data class MyModel(
         @field:NotNull(message = "idはnull不許可")
         val id: Long?,
-        @CanSplitBySpace(message = "名前は半角スペースで2つに分割できる")
+        @CanSplitBySpace(message = "名前が半角スペースで2つに分割できない")
         val name: String?,
         val create: Date?,
         val update: Date?
